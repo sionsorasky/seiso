@@ -1,4 +1,4 @@
-// スクロール時にアニメーションを表示
+// ===== スクロールアニメーション =====
 const contents = document.querySelectorAll('.content');
 window.addEventListener('scroll', () => {
   contents.forEach(el => {
@@ -9,13 +9,22 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ニュース検索機能
-const searchInput = document.getElementById('searchInput');
-const newsItems = document.getElementById('newsList').getElementsByTagName('li');
+// ===== 全体検索 =====
+const globalSearch = document.getElementById('globalSearch');
+globalSearch.addEventListener('keyup', () => {
+  const keyword = globalSearch.value.toLowerCase();
+  document.querySelectorAll('body *:not(script):not(style)').forEach(el => {
+    if (el.textContent && el.textContent.trim().length > 0) {
+      el.style.display = el.textContent.toLowerCase().includes(keyword) || keyword === ''
+        ? ''
+        : 'none';
+    }
+  });
+});
 
-searchInput.addEventListener('keyup', () => {
-  const filter = searchInput.value.toLowerCase();
-  for (let item of newsItems) {
-    item.style.display = item.textContent.toLowerCase().includes(filter) ? '' : 'none';
-  }
+// ===== モバイルメニュー =====
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.querySelector('#nav-menu ul');
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
 });
