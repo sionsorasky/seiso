@@ -10,20 +10,34 @@
   <!-- ヘッダー -->
   <header class="navbar">
     <div class="logo">高梅テクノロジーズ</div>
-    <nav>
+    <nav id="nav-menu">
       <ul>
         <li><a href="#about">会社概要</a></li>
         <li><a href="#news">ニュース</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </header>
 
-  <!-- ヒーローセクション -->
-  <section class="hero fade-in">
-    <h1>テクノロジーで未来を創る</h1>
-    <p>高梅テクノロジーズは革新的なソリューションを提供します。</p>
-    <a href="#contact" class="btn">お問い合わせ</a>
+  <!-- ヒーローセクション（背景アニメーション付き） -->
+  <section class="hero">
+    <div class="animated-bg">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="hero-content fade-in">
+      <h1>テクノロジーで未来を創る</h1>
+      <p>高梅テクノロジーズは革新的なソリューションを提供します。</p>
+      <a href="#contact" class="btn">お問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- 検索バー（サイト全体） -->
+  <section class="content fade-up" id="site-search">
+    <h2>サイト内検索</h2>
+    <input type="text" id="globalSearch" placeholder="キーワードでサイト全体を検索...">
   </section>
 
   <!-- 会社概要 -->
@@ -33,11 +47,10 @@
       技術と創造力で新しい社会価値を生み出すことを目指しています。</p>
   </section>
 
-  <!-- ニュース・検索 -->
+  <!-- ニュース -->
   <section id="news" class="content fade-up">
     <h2>ニュース</h2>
-    <input type="text" id="searchInput" placeholder="ニュースを検索...">
-    <ul id="newsList">
+    <ul>
       <li>2025年10月：新製品「AI制御モジュール」を発表</li>
       <li>2025年9月：本社オフィスを拡張しました</li>
       <li>2025年8月：電車シミュレーション技術がRobloxに採用</li>
