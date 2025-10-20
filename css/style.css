@@ -1,4 +1,3 @@
-/* 全体レイアウト */
 body {
   font-family: "Noto Sans JP", sans-serif;
   margin: 0;
@@ -8,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ナビゲーションバー */
+/* ===== ナビゲーション ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -18,13 +17,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  padding: 15px 40px;
   z-index: 1000;
 }
 
-.navbar .logo {
+.logo {
   font-weight: bold;
-  font-size: 1.2rem;
   color: #0055aa;
 }
 
@@ -33,6 +31,7 @@ body {
   display: flex;
   gap: 25px;
   margin: 0;
+  padding: 0;
 }
 
 .navbar a {
@@ -45,23 +44,97 @@ body {
   color: #0055aa;
 }
 
-/* ヒーローセクション */
+/* モバイルメニュー */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ===== ヒーローセクション（背景アニメーション付き） ===== */
 .hero {
+  position: relative;
   height: 90vh;
-  background: linear-gradient(to bottom right, #0055aa, #00aaff);
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
   text-align: center;
-  padding: 20px;
+}
+
+.hero .animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0044aa, #00aaff);
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 10s infinite ease-in-out;
+}
+
+.circle:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+.circle:nth-child(2) {
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  right: 20%;
+  animation-delay: 2s;
+}
+.circle:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  right: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
 }
 
 .hero h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  animation: fadeInDown 1.2s ease forwards;
 }
 
 .hero p {
@@ -83,7 +156,7 @@ body {
   color: white;
 }
 
-/* セクション共通 */
+/* ===== コンテンツ ===== */
 section {
   padding: 100px 20px;
   max-width: 900px;
@@ -108,23 +181,13 @@ h2 {
   padding-left: 10px;
 }
 
-/* ニュース */
-#news input {
+/* 検索バー */
+#globalSearch {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-top: 10px;
   border-radius: 5px;
   border: 1px solid #aaa;
-}
-
-#newsList {
-  list-style: none;
-  padding-left: 0;
-}
-
-#newsList li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
 }
 
 /* フッター */
@@ -133,14 +196,18 @@ footer {
   color: white;
   text-align: center;
   padding: 25px 10px;
+  margin-top: 50px;
 }
 
-/* アニメーション */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  animation: fadeInDown 1.5s ease forwards;
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  section {
+    padding: 70px 15px;
+  }
 }
