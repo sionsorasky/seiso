@@ -1,0 +1,146 @@
+/* 全体レイアウト */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fafafa;
+  overflow-x: hidden;
+}
+
+/* ナビゲーションバー */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #0055aa;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #0055aa;
+}
+
+/* ヒーローセクション */
+.hero {
+  height: 90vh;
+  background: linear-gradient(to bottom right, #0055aa, #00aaff);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background: white;
+  color: #0055aa;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #0055aa;
+  color: white;
+}
+
+/* セクション共通 */
+section {
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  color: #0055aa;
+  margin-bottom: 15px;
+  border-left: 5px solid #0055aa;
+  padding-left: 10px;
+}
+
+/* ニュース */
+#news input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+#newsList {
+  list-style: none;
+  padding-left: 0;
+}
+
+#newsList li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* フッター */
+footer {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+}
+
+/* アニメーション */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInDown 1.5s ease forwards;
+}
